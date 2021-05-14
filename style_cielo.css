@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #141212;
+}
+.wrapper{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30px;
+    left: 45%;
+    animation: rise 7s linear;
+    z-index: 100;
+}
+/ * Animación de la salida de la luna * /
+@keyframes rise{
+    0%{
+        top: 350px;
+        left: 0%;
+    }
+    10%{
+        top: 300px;
+        left: 10%;
+    }
+    40%{
+        top: 160px;
+        left: 40%;
+    }
+    45%{
+        top: 140px;
+        left: 45%;
+    }
+    80%{
+        top: 60px;
+        left: 80%;
+    }
+}
+.moon{
+    position:absolute;
+    top:15%;
+    right:50%;
+    right:calc(30% - 80px);
+    width:120px;
+    height:120px;
+    border-radius:100%;
+    background:#CCC;
+    box-shadow:0px 0px 100px #FFFF8C;
+    z-index:5;
+    animation: moonAnimation 3s infinite;
+}
+
+.moonFase{
+    position:absolute;
+    top:15%;
+    right:50%;
+    right:calc(30% - 80px);
+    width:120px;
+    height:120px;
+    border-radius:100%;
+    background: rgba(153,153,153,0);
+    box-shadow: inset -25px 0px 0 0px #999;
+    z-index:6;
+    animation: moonFaseAnimation 600s infinite;
+}
+
+.crater{
+    position:absolute;
+    background:#555;
+    box-shadow: inset 3px -2px 0 0px #414043;
+    z-index:7;
+}
+
+.crater1{
+    top:30px;
+    left:40px;
+    width:25px;
+    height:45px;
+    border-top-right-radius:50px 100px;
+    border-top-left-radius:50px 100px;
+    border-bottom-right-radius:50px 100px;
+    border-bottom-left-radius:50px 100px;
+    transform:rotate(40deg);
+}
+
+
+@keyframes "moonAnimation" { 0% { box-shadow: 0px 0px 100px #FFF; } 50% { box-shadow: 0px 0px 140px #FFF; } 100% { box-shadow: 0px 0px 100px #FFF; } }
+
+
+@keyframes glow{
+    0%{
+        box-shadow: 0 0 5px #fff;
+    }
+    100%{
+        box-shadow: 0 0 30px #fff;
+    }
+}
+span{
+    color: #fff;
+    position: absolute;
+    transition: all 3s linear;
+    animation: spangled 3s linear infinite;
+}
+     / * Establecer la animación de estrellas parpadeantes * /
+@keyframes spangled{
+    0%{
+        opacity: 0.4;
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0 0 8px rgb(250, 250, 219);
+    }
+}
+     / * Definir un meteoro * /
+.meteor{
+    display: block;
+    width: 10px;
+    position: relative;
+    left: 30%;
+    top: 15px;
+    opacity: 0;
+    animation: meteor 1.5s linear;
+    animation-delay: 10s;
+}
+     / * Establecer la cola del meteoro * /
+.meteor::after{
+    content: ' ';
+    display: block;
+    border: 1px solid rgb(255,251,240);
+    border-width:  0px 100px 2px 150px;
+    transform: rotate(-45deg);
+    border-color:transparent transparent transparent #eee;
+}
+     / * Animación de meteoritos * /
+@keyframes meteor{
+    0%{
+        opacity: 0;
+        transform: scale(0.5) translate3d(0,0)
+    }
+    50%{
+        opacity: 0.9;
+        transform: translate3d(-200px, 200px, 0);
+
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.5) translate3d(-300px,300px,0);
+    }
+}
+
+<style>
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+.estrellas {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+body {
+  background:#000 url(http://1.bp.blogspot.com/-q7NYia_DjQI/U4t7_J4gwwI/AAAAAAAAMKo/nru4YxfjK6I/s1600/estrellas.png) repeat top center;
+}
+
+.estrellas{
+  background:transparent url(http://3.bp.blogspot.com/-FwB8aSiMBmI/U4t9MkimRrI/AAAAAAAAMK0/FAlqX8ZFyu8/s1600/twinkling.png) repeat top center;
+  z-index:-2;
+
+  -moz-animation:move-twink-back 100s linear infinite;
+  -ms-animation:move-twink-back 100s linear infinite;
+  -o-animation:move-twink-back 100s linear infinite;
+  -webkit-animation:move-twink-back 100s linear infinite;
+  animation:move-twink-back 100s linear infinite;
+}
+</style>
