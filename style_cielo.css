@@ -1,0 +1,314 @@
+*{    margin: 0;    padding: 0; box-sizing: border-box;}
+body{
+    background-color: #000850;
+}
+.contenedor
+{
+    width:1920px;
+    height:1080px;
+    display: block;
+    margin: 0;
+}
+.wrapper{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30px;
+    left: 45%;
+    animation: rise 7s linear;
+    z-index: 100;
+}
+/* Animación de la salida de la luna */
+@keyframes rise{
+    0%{
+        top: 350px;
+        left: 0%;
+    }
+    10%{
+        top: 300px;
+        left: 10%;
+    }
+    40%{
+        top: 160px;
+        left: 40%;
+    }
+    45%{
+        top: 140px;
+        left: 45%;
+    }
+    80%{
+        top: 60px;
+        left: 80%;
+    }
+}
+.moon{
+    position:absolute;
+    top:15%;
+    right:50%;
+    right:calc(30% - 80px);
+    width:120px;
+    height:120px;
+    border-radius:100%;
+    background:#CCC;
+    box-shadow:0px 0px 100px #FFFF8C;
+    z-index:5;
+    animation: moonAnimation 3s infinite;
+}
+
+.moonFase{
+    position:absolute;
+    top:15%;
+    right:50%;
+    right:calc(30% - 80px);
+    width:120px;
+    height:120px;
+    border-radius:100%;
+    background: rgba(153,153,153,0);
+    box-shadow: inset -25px 0px 0 0px #999;
+    z-index:6;
+    animation: moonFaseAnimation 600s infinite;
+}
+
+.crater{
+    position:absolute;
+    background:#555;
+    box-shadow: inset 3px -2px 0 0px #414043;
+    z-index:7;
+}
+
+.crater1{
+    top:30px;
+    left:40px;
+    width:25px;
+    height:45px;
+    border-top-right-radius:50px 100px;
+    border-top-left-radius:50px 100px;
+    border-bottom-right-radius:50px 100px;
+    border-bottom-left-radius:50px 100px;
+    transform:rotate(40deg);
+}
+
+
+@keyframes moonAnimation
+{     0% { box-shadow: 0px 0px 100px #FFF; } 
+    50% { box-shadow: 0px 0px 140px #FFF; } 
+    100% { box-shadow: 0px 0px 100px #FFF; } 
+}
+
+@keyframes glow{
+    0%{
+        box-shadow: 0 0 5px #fff;
+    }
+    100%{
+        box-shadow: 0 0 30px #fff;
+    }
+}
+span{
+    color: #fff;
+    position: absolute;
+    transition: all 3s linear;
+    animation: spangled 3s linear infinite;
+}
+/* Establecer la animación de estrellas parpadeantes */
+@keyframes spangled{
+    0%{
+        opacity: 0.4;
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0 0 8px rgb(250, 250, 219);
+    }
+}
+/* Definir un meteoro */
+.meteor{
+    display: block;
+    width: 10px;
+    position: relative;
+    left: 30%;
+    top: 15px;
+    opacity: 0;
+    animation: meteor 1.5s linear;
+    animation-delay: 10s;
+}
+/* Establecer la cola del meteoro */
+.meteor::after{
+    content: ' ';
+    display: block;
+    border: 1px solid rgb(255,251,240);
+    border-width:  0px 100px 2px 150px;
+    transform: rotate(-45deg);
+    border-color:transparent transparent transparent #eee;
+}
+/*Animación de meteoritos*/
+@keyframes meteor{
+    0%{
+        opacity: 0;
+        transform: scale(0.5) translate3d(0,0)
+    }
+    50%{
+        opacity: 0.9;
+        transform: translate3d(-200px, 200px, 0);
+
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.5) translate3d(-300px,300px,0);
+    }
+}
+
+/*<style>--*/
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+.estrellas {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+body {
+  background:#000 url(http://1.bp.blogspot.com/-q7NYia_DjQI/U4t7_J4gwwI/AAAAAAAAMKo/nru4YxfjK6I/s1600/estrellas.png) repeat top center;
+}
+
+.estrellas{
+  background:transparent url(http://3.bp.blogspot.com/-FwB8aSiMBmI/U4t9MkimRrI/AAAAAAAAMK0/FAlqX8ZFyu8/s1600/twinkling.png) repeat top center;
+  z-index:-2;
+
+  -moz-animation:move-twink-back 100s linear infinite;
+  -ms-animation:move-twink-back 100s linear infinite;
+  -o-animation:move-twink-back 100s linear infinite;
+  -webkit-animation:move-twink-back 100s linear infinite;
+  animation:move-twink-back 100s linear infinite;
+}
+/*</style>*/
+/*-------------------------------------------------------PIRAMIDE------------------------------------------------------------*/
+.piramide_1 
+{
+    display:inline-block;
+    border-style: solid;
+    border-color: transparent transparent #FFFFFF transparent;
+    border-width: 540px 0px 500px 270px;  /* separacionSuperior | derecha | largo inferior | izquierda  */
+    height: 0;
+    width: 200px;
+    position: relative;
+    margin: 0 0 0 -80px;
+}.piramide_2
+{
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent transparent transparent #9CADB7;
+    border-width: 250px 0px 250px 200px;
+    height: 0;
+    width: 200px;
+    position: relative;
+    margin: 0 0 0 -5px;
+}.piramide_3
+{
+    display:inline-block;
+    border-style: solid;
+    border-color: transparent transparent #FFFFFF transparent;
+    border-width: 0px 0px 650px 400px;  /* separacionSuperior | derecha | largo inferior | izquierda  */
+    height: 0;
+    width: 200px;
+    position: relative;
+    margin: 0 0 0 -280px;
+}.piramide_4
+{
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent transparent #9CADB7 transparent;
+    border-width: 0px 400px 650px 0px;
+    height: 0;
+    width: 200px;
+    position: relative;
+    margin: 0 0 0 -5px;
+}
+/*-------------------------------------------------------ARBOLES------------------------------------------------------------*/
+.tree_1_punta{
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent transparent #9CADB7 transparent;
+    border-width: 0px 100px 100px 100px;
+    height: 0;
+    width: 200px;
+    position: relative;
+    margin: 0 0 300px 400px;
+}.tree_1_copa{
+    border-style: solid;
+    border-color: transparent transparent #FFFFFF transparent;
+    border-width: 0px 100px 157px 100px;
+    height: 0;
+    width: 250px;
+    position: absolute;
+    margin: -307px 0 0 1295px;
+}.tree_1_tronco{
+    border-style: solid;
+    border-color: #9CADB7 #9CADB7 #9CADB7 #9CADB7;
+    border-width: 10px 10px 120px 10px;
+    height: 0;
+    width: 20px;
+    position: absolute;
+    margin: -150px 0 0 1408px; /* |separacion superior|2|3|separacion izquierda */
+}
+
+.tree_2_punta{
+    
+    border-style: solid;
+    border-color: transparent transparent #9CADB7 transparent;
+    border-width: 0px 100px 100px 100px;
+    height: 0;
+    width: 200px;
+    position: relative;
+    margin: -400px 0 300px 1595px;
+}.tree_2_copa{
+    border-style: solid;
+    border-color: transparent transparent #FFFFFF transparent;
+    border-width: 0px 100px 150px 100px;
+    height: 0;
+    width: 250px;
+    position: absolute;
+    margin: -300px 0 0 1570px;
+}.tree_2_tronco{
+    border-style: solid;
+    border-color: #9CADB7 #9CADB7 #9CADB7 #9CADB7;
+    border-width: 10px 10px 120px 10px;
+    height: 0;
+    width: 20px;
+    position: absolute;
+    margin: -150px 0 0 1680px; /* |separacion superior|2|3|separacion izquierda */
+}
+/*-------------------suelo-------------------------------------------------*/
+.Rectangulo {
+   width: 2720px;
+   height: 315px;
+   background: #939598;
+   margin-top: -50px;
+}
+
+.triangulo {
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent transparent #A8A9AD transparent;
+    border-width: 350px 0px 320px 250px;
+    height:0;
+    width: 0px;
+    position: absolute;
+    margin: -800px 0px 0px 2470px;
